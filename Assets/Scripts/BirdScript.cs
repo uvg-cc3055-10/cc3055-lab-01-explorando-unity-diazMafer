@@ -25,6 +25,11 @@ public class BirdScript : MonoBehaviour {
 	void Update() {
         if (dead == false)
         {
+            if (rb.position.x > 24.995)
+            {
+                dead = true;
+            }
+
             if (Input.GetButtonDown("Jump"))
             {
                 rb.velocity = Vector2.zero;
@@ -35,10 +40,7 @@ public class BirdScript : MonoBehaviour {
             rb.transform.Translate(new Vector3(1, 0, 0) * forwardSpeed * Time.deltaTime);
 
             cam.transform.Translate(new Vector3(1, 0, 0) * forwardSpeed * Time.deltaTime);
-            if (rb.position.x == 24.995)
-            {
-                dead = true;
-            }
+            
         }
     }
 
